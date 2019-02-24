@@ -1,0 +1,40 @@
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+
+.footer{
+    background-color: #512DA8;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+}
+.jumbotron {
+    background-image: url(spice_spoons_detail.jpg);
+    background-position: 0% 40%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0px auto;
+    color: white;
+}
+
+.whiteText {
+    color: white;
+}
+
+address{
+    font-size:80%;
+    margin:0px;
+    color: white;
+}
+
+.navbar-dark {
+    background-color: #512DA8;
+}
