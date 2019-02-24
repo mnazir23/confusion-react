@@ -32,7 +32,13 @@
 address{
     font-size:80%;
     margin:0px;
-    color: white;
+    color: black;
+}
+
+.cardImage {
+    display: block;
+    max-width: 100%;
+    height: 450px;
 }
 
 .navbar-dark {
