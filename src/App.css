@@ -50,3 +50,14 @@ address{
 .navbar-dark {
     background-color: #512DA8;
 }
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: #787878;
+    color: #787878;
+}
+
+.btn:hover {
+    background-color: #676464; /* Green */
+    color: white;
+}
