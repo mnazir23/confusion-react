@@ -4,17 +4,24 @@ import { Loading } from './LoadingComponent';
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function RenderDish ({dish}) {
     if (dish != null)
         return (
-            <Card>
-                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                <CardBody>
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
+            <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                <Card>
+                    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
         );
     else
         return (
@@ -26,16 +33,20 @@ function RenderComments ({comments, postComment, dishId}) {
     if (comments != null) {
         const dishComments = comments.map((comment) => {
             return (
-                <ul className="list-unstyled">
-                <p>{comment.comment}</p>
-                <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long',day: '2-digit'}).format(new Date(comment.date))}</p>
-                </ul>
+                <Fade in>
+                    <ul className="list-unstyled">
+                        <p>{comment.comment}</p>
+                        <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long',day: '2-digit'}).format(new Date(comment.date))}</p>
+                    </ul>
+                </Fade>
             );
         });
         return (
             <div>
-                {dishComments}
-                <CommentForm dishId={dishId} postComment={postComment}/>
+                <Stagger in>
+                    {dishComments}
+                    <CommentForm dishId={dishId} postComment={postComment}/>
+                </Stagger>
             </div>
         );
     }
@@ -84,10 +95,10 @@ const DishDetail = (props) => {
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <h4>Reviews</h4>
-                        <RenderComments comments={props.comments} 
-                            postComment={props.postComment}
-                            dishId={props.dish.id}/>
+                    <h4>Reviews</h4>
+                    <RenderComments comments={props.comments} 
+                        postComment={props.postComment}
+                        dishId={props.dish.id}/>
                     </div>
                 </div>
             </div>
