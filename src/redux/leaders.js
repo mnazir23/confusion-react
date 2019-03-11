@@ -8,7 +8,7 @@ export const Leaders = (state =  { isLoading: true, errMess: null, leaders: []},
         case ActionTypes.LEADERS_LOADING:
             return {...state, isLoading: true, errMess: null, leaders: []}
 
-        case ActionTypes.LEADERS_LOADING:
+        case ActionTypes.LEADERS_FAILED:
             return {...state, isLoading: false, errMess: action.payload};
 
         default:
