@@ -4,13 +4,6 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 
 function About(props) {
-
-    const leaders = props.leaders.map((leaderItem) => {
-        return (
-            <RenderLeader leader={leaderItem} />
-        );
-    });
-
     return(
         <div className="container">
             <div className="row">
@@ -64,10 +57,13 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
+                    <br></br>
                 </div>
                 <div className="col-12">
                     <Media list>
-                        {leaders}
+                        <RenderLeader leaders={props.leaders.leaders}
+                                      isLoading={props.leaders.isLoading}
+                                      errMess={props.leaders.errMess} />
                     </Media>
                 </div>
             </div>
