@@ -30,7 +30,7 @@ function RenderLeader (props) {
         const leaders = props.leaders.map((leader) => {
             return(
                 <div className="row mb-5">
-                <Fade in>
+                <Fade in key={leader._id}>
                     <Media tag="li">
                         <Media left middle>
                             <Media className="leaderImage" object src={baseUrl + leader.image} alt={leader.name} />
